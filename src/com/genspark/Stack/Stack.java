@@ -1,6 +1,8 @@
 package com.genspark.Stack;
 
 
+import com.genspark.LinkedList.LinkedList;
+
 public class Stack {
     LinkedList ds;
     public Stack() {
@@ -23,7 +25,7 @@ public class Stack {
        return ds.getFirstElementOfTheList();
     }
 
-    void isEmpty() {
-        ds.isEmpty();
+    boolean isEmpty() {
+        return ds.isEmpty();
     }
 }

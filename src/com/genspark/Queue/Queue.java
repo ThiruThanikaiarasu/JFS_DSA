@@ -1,5 +1,7 @@
 package com.genspark.Queue;
 
+import com.genspark.LinkedList.LinkedList;
+
 public class Queue {
     LinkedList ds;
 

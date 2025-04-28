@@ -1,4 +1,6 @@
-package com.genspark.LinkedList;
+package com.genspark.LinkedListProblems;
+
+import com.genspark.LinkedList.ListNode;
 
 public class RemoveNthNodeFromEndOfTheList {
     public ListNode removeNthFromEnd(ListNode head, int n) {

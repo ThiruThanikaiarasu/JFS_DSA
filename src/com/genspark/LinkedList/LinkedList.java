@@ -2,16 +2,19 @@ package com.genspark.LinkedList;
 
 public class LinkedList {
     ListNode head;
+    ListNode tail;
 
-    LinkedList() {
+    public LinkedList() {
         head = null;
+        tail = null;
     }
 
-    LinkedList(int data) {
+    public LinkedList(int data) {
         head = new ListNode(data);
+        tail = head;
     }
 
-    void addNodeAtTheEndOfLinkedList(int data) {
+    public void addNodeAtTheEndOfLinkedList(int data) {
 
         ListNode newNode = new ListNode(data);
 
@@ -27,7 +30,7 @@ public class LinkedList {
         currentNode.setNext(newNode);
     }
 
-    void traverseTheLinkedList() {
+    public void traverseTheLinkedList() {
 
         ListNode currentNode = head;
 
@@ -38,7 +41,7 @@ public class LinkedList {
         System.out.println();
     }
 
-    void deleteLastNode() {
+    public void deleteLastNode() {
         if(head == null) {
             return;
         }
@@ -55,7 +58,7 @@ public class LinkedList {
         currentNode.setNext(null);
     }
 
-    void deleteNodeAtKthPosition(int k) {
+    public void deleteNodeAtKthPosition(int k) {
 
         if (head == null || k < 0) {
             return;
@@ -84,7 +87,7 @@ public class LinkedList {
         previousNode.setNext(currentNode.getNext());
     }
 
-    void deleteMiddleNode() {
+    public void deleteMiddleNode() {
         if (head == null || head.getNext() == null) {
             head = null;
             return;
@@ -101,6 +104,42 @@ public class LinkedList {
         }
 
         previousNode.setNext(slow.getNext());
+    }
+
+    public void addElementAtHeadPosition(int data) {
+        ListNode newNode = new ListNode(data);
+        newNode.setNext(head);
+        head = newNode;
+    }
+    public void addElementAtEnd(int data) { // Enqueue
+        ListNode newNode = new ListNode(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        tail.setNext(newNode);
+        tail = newNode;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public void skipElement() { // Dequeue
+        if (head != null) {
+            head = head.getNext();
+            if (head == null) { // Important! If queue becomes empty, reset tail
+                tail = null;
+            }
+        }
+    }
+
+    public int getFirstElementOfTheList() {
+        if (head == null) {
+            throw new RuntimeException("Queue is empty");
+        }
+        return head.getData();
     }
 
 }

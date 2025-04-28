@@ -1,4 +1,7 @@
-package com.genspark.LinkedList;
+package com.genspark.LinkedListProblems;
+
+import com.genspark.LinkedList.LinkedList;
+import com.genspark.LinkedList.ListNode;
 
 public class ReverseLinkedListUsingRecursion {
 
