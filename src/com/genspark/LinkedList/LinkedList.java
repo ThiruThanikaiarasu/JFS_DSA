@@ -103,5 +103,4 @@ public class LinkedList {
         previousNode.setNext(slow.getNext());
     }
 
-
 }
