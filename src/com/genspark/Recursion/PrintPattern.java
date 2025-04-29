@@ -17,6 +17,27 @@ public class PrintPattern {
         return 1;
     }
 
+    public static int printDecNumber(int n) {
+
+        if(n < 0) {
+            return 1;                         // for the base case
+        }
+
+        System.out.println(n);
+        return printDecNumber(n -1);      // for all other cases
+    }
+
+    public static int printAscNumbers(int n) {
+        if (n < 0) {
+            return 1;             // base case
+        }
+
+        printAscNumbers(n - 1);       // first go down to 0
+        System.out.println(n);
+        return 1;// then print on the way back up
+    }
+
+
     public static void main(String[] args) {
         printPattern(5);
     }
