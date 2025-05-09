@@ -7,10 +7,12 @@ import com.genspark.Exception.exception.PricingException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 public class AppValidator {
-    private final List<String> ALLOWED_CATEGORIES = Arrays.asList("Games", "Utility", "Finance", "Enterprise");
-    private final List<String> BANNED_DEVELOPERS = Arrays.asList("MaliciousDev", "SpammerInc");
+    private final Set<String> ALLOWED_CATEGORIES = Set.of("Games", "Utility", "Finance", "Enterprise");
+    private final Set<String> BANNED_DEVELOPERS = Set.of("MaliciousDev", "SpammerInc");
 
     public void validateApps(App app)
             throws AppSizeTooLargeException, InvalidCategoryException, PricingException, DeveloperBannedException {
@@ -22,8 +24,8 @@ public class AppValidator {
             throw new InvalidCategoryException("Category " + app.getCategory() + " is not allowed");
         }
 
-        if(app.getPrice() > 100) {
-            throw new PricingException("App price must be less than 100");
+        if(!(Objects.equals(app.getCategory(), "Enterprise")) && app.getPrice() > 100) {
+            throw new PricingException("Non enterprise App price must be less than 100");
         }
 
         if(app.getPrice() < 0) {
